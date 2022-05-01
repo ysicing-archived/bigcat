@@ -1,0 +1,13 @@
+info:
+  contact:
+    email: i@ysicing.me
+    name: ysicing
+    url: http://github.com/ysicing
+  description: This is a sample server Petstore server.
+  license:
+    name: AGPL
+    url: https://www.gnu.org/licenses/agpl-3.0.en.html
+  title: BigCat API
+  version: 0.0.1
+paths: {}
+swagger: "2.0"

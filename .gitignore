@@ -1,0 +1,14 @@
+yarn.lock
+web/build
+web/node_modules
+web/package-lock.json
+
+dist/
+
+*.log
+*.db
+.DS_Store
+
+.idea/
+.vscode/
+_output/
