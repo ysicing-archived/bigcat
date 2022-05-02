@@ -5,9 +5,13 @@
 package auth
 
 import (
+	"fmt"
+
 	"github.com/ergoapi/exgin"
 	"github.com/gin-gonic/gin"
 	"github.com/ysicing/bigcat/internal/app/model"
+	"github.com/ysicing/bigcat/internal/util"
+	libutil "github.com/ysicing/bigcat/pkg/util"
 )
 
 type loginForm struct {
@@ -15,20 +19,31 @@ type loginForm struct {
 	Password string `json:"password"`
 }
 
-func UserGeneralLogin(c *gin.Context) {
+func (h Handler) UserGeneralLogin(c *gin.Context) {
 	var login loginForm
 	exgin.Bind(c, &login)
 
-	var account model.User
-	err := model.DB().Where("username = ?", login.Username).First(&account).Error
+	var user model.User
+	err := model.DB().Where("username = ?", login.Username).First(&user).Error
 	if err != nil {
 		exgin.GinsData(c, nil, err)
 		return
 	}
-	dataStore := map[string]interface{}{
-		"token":     "",
-		"real_name": account.RealName,
-		"user":      account.Username,
+	if util.CheckPassword(&user, login.Password) {
+		token, tokenerr := libutil.JwtAuth(libutil.Token{
+			Username: login.Username,
+		})
+		if tokenerr != nil {
+			exgin.GinsData(c, nil, tokenerr)
+			return
+		}
+		dataStore := map[string]interface{}{
+			"token":     token,
+			"real_name": user.RealName,
+			"user":      user.Username,
+		}
+		exgin.GinsData(c, dataStore, nil)
+		return
 	}
-	exgin.GinsData(c, dataStore, nil)
+	exgin.GinsData(c, nil, fmt.Errorf("username or password error"))
 }

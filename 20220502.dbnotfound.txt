@@ -1,9 +1,10 @@
-SELECT * FROM `configs` WHERE ckey="salt" AND `configs`.`deleted_at` IS NULL ORDER BY `configs`.`id` DESC LIMIT 1
-SELECT * FROM `configs` WHERE ckey="salt" AND `configs`.`deleted_at` IS NULL ORDER BY `configs`.`id` DESC LIMIT 1
 SELECT * FROM `config` WHERE ckey="salt" AND `config`.`deleted_at` IS NULL ORDER BY `config`.`id` DESC LIMIT 1
 SELECT * FROM `config` WHERE ckey="salt" AND `config`.`deleted_at` IS NULL ORDER BY `config`.`id` DESC LIMIT 1
-CREATE INDEX `user_idx` ON `User`(`username`)
-CREATE TABLE `user` (`id` integer,`created_at` datetime,`updated_at` datetime,`deleted_at` datetime,`username` varchar(50) NOT NULL,`password` varchar(150) NOT NULL,`department` varchar(50),`real_name` varchar(50),`email` varchar(50),PRIMARY KEY (`id`))
-CREATE TABLE `user` (`id` integer,`created_at` datetime,`updated_at` datetime,`deleted_at` datetime,`username` varchar(50) NOT NULL,`password` varchar(150) NOT NULL,`department` varchar(50),`real_name` varchar(50),`email` varchar(50),PRIMARY KEY (`id`))
+SELECT * FROM `config` WHERE ckey="initadmin" AND `config`.`deleted_at` IS NULL ORDER BY `config`.`id` DESC LIMIT 1
+SELECT * FROM `user` WHERE username = "admin" AND `user`.`deleted_at` IS NULL ORDER BY `user`.`id` DESC LIMIT 1
+SELECT * FROM `config` WHERE ckey="initadmin" AND `config`.`deleted_at` IS NULL ORDER BY `config`.`id` DESC LIMIT 1
 SELECT * FROM `config` WHERE ckey="salt" AND `config`.`deleted_at` IS NULL ORDER BY `config`.`id` DESC LIMIT 1
 SELECT * FROM `config` WHERE ckey="salt" AND `config`.`deleted_at` IS NULL ORDER BY `config`.`id` DESC LIMIT 1
+SELECT * FROM `config` WHERE ckey="initadmin" AND `config`.`deleted_at` IS NULL ORDER BY `config`.`id` DESC LIMIT 1
+SELECT * FROM `user` WHERE username = "admin" AND `user`.`deleted_at` IS NULL ORDER BY `user`.`id` DESC LIMIT 1
+SELECT * FROM `config` WHERE ckey="initadmin" AND `config`.`deleted_at` IS NULL ORDER BY `config`.`id` DESC LIMIT 1

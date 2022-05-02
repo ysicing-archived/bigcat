@@ -148,7 +148,7 @@ const excludeDB = ref<string[]>([])
 const insulateWord = ref<string[]>([])
 
 const mergeFlow = (vl: number) => {
-      flowReq.Profile(vl).then((res: AxiosResponse<Res<RespSteps>>) => steps.value = res.data.payload.steps)
+      flowReq.Profile(vl).then((res: AxiosResponse<Res<RespSteps>>) => steps.value = res.data.data.steps)
 }
 
 const editDB = () => {
@@ -162,8 +162,8 @@ const fillInfo = (vl: any) => {
       turnState()
       excludeDB.value = dbForm.value.exclude_db_list.split(",")
       insulateWord.value = dbForm.value.insulate_word_list.split(",")
-      request.Schema(dbForm.value.source_id, "schema").then((res: AxiosResponse<Res<any>>) => schemaList.value = res.data.payload.results)
-      flowReq.Profile(dbForm.value.flow_id).then((res: AxiosResponse<Res<RespSteps>>) => steps.value = res.data.payload.steps)
+      request.Schema(dbForm.value.source_id, "schema").then((res: AxiosResponse<Res<any>>) => schemaList.value = res.data.data.results)
+      flowReq.Profile(dbForm.value.flow_id).then((res: AxiosResponse<Res<RespSteps>>) => steps.value = res.data.data.steps)
 }
 
 

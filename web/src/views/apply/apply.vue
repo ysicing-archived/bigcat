@@ -68,9 +68,9 @@ const tags = [
 
 onMounted(() => {
       request.Source("count").then((res: AxiosResponse<Res<any>>) => {
-            count.dml = res.data.payload.dml
-            count.ddl = res.data.payload.ddl
-            count.query = res.data.payload.query
+            count.dml = res.data.data.dml
+            count.ddl = res.data.data.ddl
+            count.query = res.data.data.query
       })
 })
 </script>

@@ -31,7 +31,7 @@ const title = {
 
 onMounted(() => {
       request.Get().then((res: AxiosResponse<Res<string>>) => {
-            editValue.value = res.data.payload
+            editValue.value = res.data.data
             instance = new Vditor("mavon-editor-id", {
                   height: 360,
                   toolbarConfig: {

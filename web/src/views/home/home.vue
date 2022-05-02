@@ -127,8 +127,8 @@ const boardContent = ref<string>("")
 
 
 onMounted(() => {
-      request.Banner().then((res: AxiosResponse<Res<any>>) => banner.value = res.data.payload)
-      board.Get().then((res: AxiosResponse<Res<string>>) => boardContent.value = res.data.payload)
+      request.Banner().then((res: AxiosResponse<Res<any>>) => banner.value = res.data.data)
+      board.Get().then((res: AxiosResponse<Res<string>>) => boardContent.value = res.data.data)
 })
 
 </script>

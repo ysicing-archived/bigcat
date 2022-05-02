@@ -6,11 +6,6 @@
 
 export default {
       "menu.home": "Index",
-      "menu.order.self": "My Order",
-      "menu.order.apply": "Apply",
-      "menu.order.title": "Audit",
-      "menu.order.query": "Query",
-      "menu.order.order": "Order",
       "menu.manage": "Manage",
       "menu.manage.user": "User",
       "menu.manage.source": "Source",

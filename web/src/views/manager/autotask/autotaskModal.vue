@@ -150,20 +150,20 @@ const postOk = () => {
 
 const fetchSource = (vl: string) => {
       request.Source('idc', vl).then((res: AxiosResponse<Res<any[]>>) => {
-            fetchList.source = res.data.payload
+            fetchList.source = res.data.data
       })
 }
 
 const fetchSchema = (vl: LabelInValue) => {
-      request.Schema(vl.value).then((res: AxiosResponse<Res<DBRelated>>) => fetchList.schema = res.data.payload.results)
+      request.Schema(vl.value).then((res: AxiosResponse<Res<DBRelated>>) => fetchList.schema = res.data.data.results)
 }
 
 const fetchTable = (vl: string) => {
-      request.Table(autotask.value.sourceLabel.value, vl).then((res: AxiosResponse<Res<DBRelated>>) => fetchList.tables = res.data.payload.results)
+      request.Table(autotask.value.sourceLabel.value, vl).then((res: AxiosResponse<Res<DBRelated>>) => fetchList.tables = res.data.data.results)
 }
 
 onMounted(() => {
-      request.IDC().then((res: AxiosResponse<Res<string[]>>) => fetchList.idc = res.data.payload)
+      request.IDC().then((res: AxiosResponse<Res<string[]>>) => fetchList.idc = res.data.data)
 })
 
 

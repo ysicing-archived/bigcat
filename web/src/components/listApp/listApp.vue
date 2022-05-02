@@ -120,9 +120,9 @@ let loading = ref(true)
 
 onMounted(() => {
       request.Source(props.type).then((res: AxiosResponse<Res<RespFetchSource[]>>) => {
-            tmpSource = res.data.payload
-            source.value = res.data.payload
-            options.value = res.data.payload
+            tmpSource = res.data.data
+            source.value = res.data.data
+            options.value = res.data.data
       }).finally(() => {
             loading.value = false
       })

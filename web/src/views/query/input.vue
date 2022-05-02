@@ -68,8 +68,8 @@ onMounted(() => {
             query_editor.value.RunEditor(hightligh[source_id as string])
       } else {
             request.HighLight(source_id).then((res: AxiosResponse<Res<any>>) => {
-                  query_editor.value.RunEditor(res.data.payload)
-                  store.commit("highlight/SAVE_HIGHLIGHT", { key: source_id, highlight: res.data.payload })
+                  query_editor.value.RunEditor(res.data.data)
+                  store.commit("highlight/SAVE_HIGHLIGHT", { key: source_id, highlight: res.data.data })
             })
       }
 })

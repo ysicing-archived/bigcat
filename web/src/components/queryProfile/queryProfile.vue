@@ -150,8 +150,8 @@ const order = ref<QueryRef>({} as QueryRef)
 
 const currentPage = (page: number) => {
       query.QueryProfile(order.value.work_id, page).then((res: AxiosResponse<Res<any>>) => {
-            tData.value = res.data.payload.data
-            pagination.pageCount = res.data.payload.page
+            tData.value = res.data.data.data
+            pagination.pageCount = res.data.data.page
       })
 }
 

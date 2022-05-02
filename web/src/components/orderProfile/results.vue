@@ -81,8 +81,8 @@ const resultTable = reactive<tableRef>({
       pageCount: 0,
       fn: ({ expr, current, pageSize }) => {
             request.Results(props.work_id, { current: current, pageSize: pageSize }).then((res: AxiosResponse<Res<any>>) => {
-                  resultTable.data = res.data.payload.record
-                  resultTable.pageCount = res.data.payload.count
+                  resultTable.data = res.data.data.record
+                  resultTable.pageCount = res.data.data.count
             })
       }
 })
@@ -104,8 +104,8 @@ const store = useStore()
 
 const currentRolling = (vl: number) => {
       request.Roll(props.work_id, vl).then((res: AxiosResponse<Res<any>>) => {
-            rollTable.data = res.data.payload.sql
-            rollTable.pageCount = res.data.payload.count
+            rollTable.data = res.data.data.sql
+            rollTable.pageCount = res.data.data.count
       })
 }
 

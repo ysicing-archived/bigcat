@@ -96,8 +96,8 @@ const newPolicy = () => {
 
 onMounted(() => {
       request.Get().then((res: AxiosResponse<Res<PolicyRuse>>) => {
-            ruse.source = res.data.payload.source
-            ruse.query = res.data.payload.query
+            ruse.source = res.data.data.source
+            ruse.query = res.data.data.query
       })
 })
 

@@ -10,31 +10,10 @@
                   <HomeOutlined />
                   <span>{{ $t('menu.home') }}</span>
             </a-menu-item>
-            <a-menu-item key="/server/order/common/list">
-                  <UnlockOutlined />
-                  <span>{{ $t('menu.order.self') }}</span>
-            </a-menu-item>
-            <a-menu-item key="/apply">
-                  <ConsoleSqlOutlined />
-                  <span>{{ $t('menu.order.apply') }}</span>
-            </a-menu-item>
-            <a-menu-item key="/comptroller/order" v-if="store.state.user.account.is_record === 1">
+            <a-menu-item key="/comptroller/order" v-if="store.state.user.account.user === 'admin'">
                   <function-outlined />
                   <span>{{ $t('menu.comptroller.title') }}</span>
             </a-menu-item>
-            <a-sub-menu :title="$t('menu.order.title')">
-                  <template #icon>
-                        <AuditOutlined />
-                  </template>
-                  <a-menu-item key="/server/order/audit/list">
-                        <function-outlined />
-                        <span>{{ $t('menu.order.order') }}</span>
-                  </a-menu-item>
-                  <a-menu-item key="/server/query/list">
-                        <MonitorOutlined />
-                        <span>{{ $t('menu.order.query') }}</span>
-                  </a-menu-item>
-            </a-sub-menu>
             <a-sub-menu :title="$t('menu.manage')" v-if="store.state.user.account.user === 'admin'">
                   <template #icon>
                         <CloudSyncOutlined />

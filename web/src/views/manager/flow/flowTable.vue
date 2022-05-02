@@ -108,8 +108,8 @@ const handleReset = (clearFilters: () => void) => {
 
 const currentPage = () => {
       request.List().then((res: AxiosResponse<Res<RespTPLs[]>>) => {
-            tblRef.data = res.data.payload
-            tblRef.pageCount = res.data.payload.length
+            tblRef.data = res.data.data
+            tblRef.pageCount = res.data.data.length
       })
 }
 

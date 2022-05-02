@@ -16,8 +16,5 @@ func NewHandler() (handler.RouteRegister, error) {
 }
 
 func (h *Handler) ApplyRoute(r *gin.Engine) {
-	r.StaticFile("/", "web/dist/index.html")
-	r.StaticFile("/icon.png", "web/dist/icon.png")
-	r.StaticFile("/favicon.ico", "web/dist/favicon.ico")
-	r.Static("/assets", "web/dist/assets")
+	r.POST("/login", h.UserGeneralLogin)
 }

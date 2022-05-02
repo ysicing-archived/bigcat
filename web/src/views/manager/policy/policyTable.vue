@@ -74,8 +74,8 @@ const tblRef = reactive<tableRef>({
       } as PolicyExpr,
       fn: (expr: PolicyParams) => {
             request.List(expr).then((res: AxiosResponse<Res<PolicyResp>>) => {
-                  tblRef.data = res.data.payload.data
-                  tblRef.pageCount = res.data.payload.page
+                  tblRef.data = res.data.data.data
+                  tblRef.pageCount = res.data.data.page
             })
       }
 })

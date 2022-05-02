@@ -115,8 +115,8 @@ const tblRef = reactive<tableRef>({
       expr: {} as AutoTaskExpr,
       fn: (expr: AutoTaskParams) => {
             request.List(expr).then((res: AxiosResponse<Res<AutoTaskResp>>) => {
-                  tblRef.data = res.data.payload.data
-                  tblRef.pageCount = res.data.payload.page
+                  tblRef.data = res.data.data.data
+                  tblRef.pageCount = res.data.data.page
             })
       }
 })

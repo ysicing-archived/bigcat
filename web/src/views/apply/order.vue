@@ -209,7 +209,7 @@ const delayTime = (date: Dayjs) => {
 
 const fetchTable = (data_base: string) => {
       fetchRequest.Table(orderItems.source_id, data_base).then((res: AxiosResponse<Res<DBRelated>>) => {
-            orderProfileArch.table = res.data.payload.results
+            orderProfileArch.table = res.data.data.results
       })
 }
 
@@ -220,8 +220,8 @@ const fetchTableArch = () => {
             data_base: orderItems.data_base,
             table: orderItems.table,
       }).then((res: AxiosResponse<Res<any>>) => {
-            archData.value = res.data.payload.rows
-            indexData.value = res.data.payload.idx
+            archData.value = res.data.data.rows
+            indexData.value = res.data.data.idx
             activeKey.value = 2
             message.success(t('order.apply.table.info') + t('common.success'))
       }).finally(() => {
@@ -239,7 +239,7 @@ const testResults = (sql: string) => {
       } as SQLTestParams)
             .then((res: AxiosResponse<Res<SQLTesting[]>>) => {
                   let counter = 0
-                  tData.value = res.data.payload
+                  tData.value = res.data.data
                   tData.value.forEach((item: SQLTesting) => {
                         if (item.level !== 0) {
                               counter++
@@ -270,8 +270,8 @@ const fetchHighLight = () => {
             editor.value.RunEditor(highlightWord[orderItems.source_id])
       } else {
             fetchRequest.HighLight(orderItems.source_id).then((res: AxiosResponse<Res<DBRelated>>) => {
-                  editor.value.RunEditor(res.data.payload)
-                  store.commit("highlight/SAVE_HIGHLIGHT", { key: orderItems.source_id, highlight: res.data.payload })
+                  editor.value.RunEditor(res.data.data)
+                  store.commit("highlight/SAVE_HIGHLIGHT", { key: orderItems.source_id, highlight: res.data.data })
             })
       }
 }
@@ -284,11 +284,11 @@ onMounted(() => {
       orderItems.source_id = route.query.source_id as string
 
       fetchRequest.Schema(orderItems.source_id, "", true).then((res: AxiosResponse<Res<DBRelated>>) => {
-            orderProfileArch.db = res.data.payload.results
+            orderProfileArch.db = res.data.data.results
       })
 
       fetchRequest.TimeLine(orderItems.source_id).then((res: AxiosResponse<Res<Timeline[]>>) => {
-            res.data.code === 5555 ? router.go(-1) : orderProfileArch.timeline = res.data.payload
+            res.data.code === 5555 ? router.go(-1) : orderProfileArch.timeline = res.data.data
       })
 
       fetchHighLight()

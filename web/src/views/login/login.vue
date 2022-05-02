@@ -104,7 +104,7 @@ const openSponsor = () => {
 
 onMounted(() => {
       IsRegister().then((res: AxiosResponse<Res<any>>) => {
-            is_register.value = res.data.payload.reg
+            is_register.value = res.data.data.reg
       })
 })
 

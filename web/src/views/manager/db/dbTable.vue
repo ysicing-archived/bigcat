@@ -58,8 +58,8 @@ const tblRef = reactive<tableRef>({
       } as DBExpr,
       fn: (expr: DBParams) => {
             request.List(expr).then((res: AxiosResponse<Res<DBResp>>) => {
-                  tblRef.data = res.data.payload.data;
-                  tblRef.pageCount = res.data.payload.page;
+                  tblRef.data = res.data.data.data;
+                  tblRef.pageCount = res.data.data.page;
             });
       }
 })

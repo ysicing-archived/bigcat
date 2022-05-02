@@ -57,7 +57,7 @@ const signIn = async () => {
             if (res.data.code === 1301) {
                   return
             }
-            store.commit("user/USER_STORE", res.data.payload)
+            store.commit("user/USER_STORE", res.data.data)
             store.commit("menu/CHANGE_SELECTED", ["/home"])
             router.replace("/home")
       })

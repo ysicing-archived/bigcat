@@ -111,8 +111,8 @@ const tblRef = reactive<tableRef>({
       } as OrderExpr,
       fn: (expr: OrderParams) => {
             request.List(expr, isAudit.value).then((res: AxiosResponse<Res<OrderTableResp>>) => {
-                  tblRef.data = res.data.payload.data
-                  tblRef.pageCount = res.data.payload.page
+                  tblRef.data = res.data.data.data
+                  tblRef.pageCount = res.data.data.page
             })
       }
 })

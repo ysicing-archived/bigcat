@@ -80,7 +80,7 @@ const rules = {
 
 onMounted(() => {
       request.UserInfo().then((res: AxiosResponse<Res<RegisterForm>>) => {
-            formItem.value = res.data.payload
+            formItem.value = res.data.data
       })
 })
 

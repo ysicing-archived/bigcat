@@ -43,11 +43,11 @@ export const common: Module<commonStore, RootStore> = {
       mutations: {
             GET_IDC (state) {
                   const request = new Request
-                  request.IDC().then((res: AxiosResponse<Res<string[]>>) => state.idc = res.data.payload).finally(() => state.idc)
+                  request.IDC().then((res: AxiosResponse<Res<string[]>>) => state.idc = res.data.data).finally(() => state.idc)
             },
             GET_FLOWS (state) {
                   const request = new Flow
-                  request.List().then((res: AxiosResponse<Res<RespTPLs[]>>) => state.flow = res.data.payload)
+                  request.List().then((res: AxiosResponse<Res<RespTPLs[]>>) => state.flow = res.data.data)
             },
             SET_SOURCE_SCHEMA (state, query) {
                   state.queryInfo = query

@@ -39,14 +39,14 @@ const clickPage = () => {
 
 const fetchState = () => {
       query.IsQuery().then((res: AxiosResponse<Res<any>>) => {
-            isQuery.value = res.data.payload.status
-            isExport.value = res.data.payload.export
+            isQuery.value = res.data.data.status
+            isExport.value = res.data.data.export
       })
 }
 
 onMounted(() => {
       query.QueryStatus().then((res: AxiosResponse<Res<boolean>>) => {
-            !res.data.payload ? com.value = ListApp : fetchState()
+            !res.data.data ? com.value = ListApp : fetchState()
       })
 })
 

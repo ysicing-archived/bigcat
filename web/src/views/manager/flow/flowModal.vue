@@ -186,7 +186,7 @@ const newFlow = () => {
 }
 
 onMounted(() => {
-      request.User().then((res: AxiosResponse<Res<AuditorList[]>>) => auditor.value = res.data.payload)
+      request.User().then((res: AxiosResponse<Res<AuditorList[]>>) => auditor.value = res.data.data)
 })
 
 defineExpose({

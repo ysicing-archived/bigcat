@@ -14,6 +14,7 @@ import (
 	"gorm.io/driver/mysql"
 	"gorm.io/driver/sqlite"
 	"gorm.io/gorm"
+	"gorm.io/gorm/schema"
 	"gorm.io/plugin/prometheus"
 )
 
@@ -30,17 +31,22 @@ func Init() {
 	dbdsn := config.GetString("db.dsn")
 	dbmode := config.GetBool("debug")
 	newLogger := glog.New(zlog.Zlog, dbmode)
+	cfg := &gorm.Config{
+		Logger:                 newLogger,
+		SkipDefaultTransaction: true, // 禁用默认事务
+		PrepareStmt:            true, // 全局缓存预编译语句
+		NamingStrategy: schema.NamingStrategy{
+			// TablePrefix:   "bc_",
+			SingularTable: true,
+		},
+	}
 	switch dbtype {
 	case "mysql":
 		zlog.Debug("dbtype is mysql")
-		db, err = gorm.Open(mysql.Open(dbdsn), &gorm.Config{
-			Logger: newLogger,
-		})
+		db, err = gorm.Open(mysql.Open(dbdsn), cfg)
 	default:
 		zlog.Debug("dbtype is %s", dbtype)
-		db, err = gorm.Open(sqlite.Open(dbdsn), &gorm.Config{
-			Logger: newLogger,
-		})
+		db, err = gorm.Open(sqlite.Open(dbdsn), cfg)
 	}
 	if err != nil {
 		zlog.Panic("setup db err: %v", err.Error())
@@ -67,6 +73,7 @@ func Init() {
 	}
 	zlog.Info(color.SGreen("create db engine success..."))
 	InitSalt()
+	InitAdmin()
 }
 
 func DB() *gorm.DB {

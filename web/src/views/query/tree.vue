@@ -100,7 +100,7 @@ const onLoadData: TreeProps['loadData'] = (treeNode: any) => {
             }
             spin()
             request.QueryTable(route.query.source_id as string, treeNode.dataRef.title).then((res: AxiosResponse<Res<any>>) => {
-                  treeNode.dataRef.children = res.data.payload.table
+                  treeNode.dataRef.children = res.data.data.table
                   gData.value = [...gData.value];
             }).finally(() => spin())
             expandedKeys.value = [treeNode.dataRef.title]
@@ -119,13 +119,13 @@ const showTableData = (key: string) => {
 onMounted(() => {
       spin()
       request.QuerySchema(route.query.source_id as string).then((res: AxiosResponse<Res<any>>) => {
-            gData.value = res.data.payload.info
-            dataList = res.data.payload.info
-            expandedKeys.value = [res.data.payload.info.key]
-            if (res.data.payload.info.length > 0) {
+            gData.value = res.data.data.info
+            dataList = res.data.data.info
+            expandedKeys.value = [res.data.data.info.key]
+            if (res.data.data.info.length > 0) {
                   store.commit("common/SET_SCHEMA_List",
                         {
-                              schema: res.data.payload.info.map((item: { key: string; }) => item.key),
+                              schema: res.data.data.info.map((item: { key: string; }) => item.key),
                               source: route.query.source as string,
                               source_id: route.query.source_id as string
                         }

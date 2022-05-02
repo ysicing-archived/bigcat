@@ -12,13 +12,13 @@ import router from "@/router";
 
 interface Res<T> {
       code: number;
-      text: string;
-      payload: T;
+      message: string;
+      data: T;
 }
 
 const ACCESS_TOKEN = sessionStorage.getItem("jwt")
 
-const COMMON_URI = "/api/v2"
+const COMMON_URI = "/api/v1"
 
 const request: AxiosInstance = axios.create({
       timeout: 200000,
@@ -48,17 +48,10 @@ const errorHandler = (error: { response: { data: { message: string }; status: nu
 }
 
 const responseInject = (res: Res<never>) => {
-      if (res.text !== '' && res.code === 1200) {
-            notification.info({
-                  message: '状态码:1200',
-                  description: res.text
-            })
-      }
-
-      if (res.code > 1200) {
+			if (res.code !== 200) {
             notification.error({
                   message: `状态码:${res.code}`,
-                  description: res.text
+                  description: res.message
             })
       }
 

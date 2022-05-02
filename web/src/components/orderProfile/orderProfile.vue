@@ -169,7 +169,7 @@ const testResults = (sql: string) => {
       } as SQLTestParams)
             .then((res: AxiosResponse<Res<SQLTesting[]>>) => {
                   let counter = 0
-                  tData.value = res.data.payload
+                  tData.value = res.data.data
                   tData.value.forEach((item: SQLTesting) => {
                         if (item.level !== 0) {
                               counter++
@@ -204,7 +204,7 @@ onMounted(() => {
             if (res.data.code === 5555) {
                   router.go(-1)
             } else {
-                  orderProfileArch.timeline = res.data.payload
+                  orderProfileArch.timeline = res.data.data
                   orderProfileArch.timeline[order.value.current_step] !== undefined ? isCurrent.value = orderProfileArch.timeline[order.value.current_step].auditor.indexOf(store.state.user.account.user) : null
             }
 
@@ -212,12 +212,12 @@ onMounted(() => {
       })
 
       FetchStepUsege(order.value.work_id).then((res: AxiosResponse<Res<stepUsege[]>>) => {
-            usege.value = res.data.payload
+            usege.value = res.data.data
       })
 
       FetchProfileSQL(order.value.work_id).then((res: AxiosResponse<Res<{ [key: string]: string }>>) => {
-            profile.value.ChangeEditorText(res.data.payload.sqls)
-            store.commit("common/ORDER_SET_SQL", res.data.payload.sqls)
+            profile.value.ChangeEditorText(res.data.data.sqls)
+            store.commit("common/ORDER_SET_SQL", res.data.data.sqls)
       })
 })
 

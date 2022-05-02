@@ -28,7 +28,7 @@ onMounted(() => {
                   autoFit: true,
                   height: 450
             });
-            chart.data(res.data.payload);
+            chart.data(res.data.data);
             chart.scale({
                   value: {
                         alias: 'SQL执行数',

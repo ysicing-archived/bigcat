@@ -84,8 +84,8 @@ export class Request {
 
       List (args: commonPage<UserExpr>): AxiosPromise {
             return request({
-                  method: 'put',
-                  url: `${COMMON_URI}/manage/user`,
+                  method: 'get',
+                  url: `${COMMON_URI}/user/list`,
                   data: args
             })
       }

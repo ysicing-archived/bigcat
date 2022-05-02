@@ -70,7 +70,7 @@ inserCss(`
 
 
 #g2-customize-tooltip .tooltip-title {
-  
+
 }
 
 #g2-customize-tooltip .tooltip-items {
@@ -192,7 +192,7 @@ const OrderTypeChart = (id: string, data: any) => {
                         <div class="tooltip-item" style="border-left: 2px solid ${color}">
                         <div class="tooltip-item-name">${name}</div>
                         <div class="tooltip-item-value">${value} /per</div>
-                       
+
                         </div>
         `;
             }).join('')}
@@ -233,8 +233,8 @@ const OrderTypeChart = (id: string, data: any) => {
 
 onMounted(() => {
       request.Axis().then((res: AxiosResponse<Res<any>>) => {
-            OrderTypeChart('container', res.data.payload.order)
-            count.value = res.data.payload.count
+            OrderTypeChart('container', res.data.data.order)
+            count.value = res.data.data.count
       })
 
 })

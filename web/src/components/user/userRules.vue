@@ -69,12 +69,12 @@ let rules = ref<RespGroups>(
 )
 
 const marge = (groups: string[]) => {
-      request.MargeGroup(groups).then((res: AxiosResponse<Res<Target>>) => rules.value.target = res.data.payload)
+      request.MargeGroup(groups).then((res: AxiosResponse<Res<Target>>) => rules.value.target = res.data.data)
 }
 
 const lazy = (u: string) => {
       request.GetGroup(u).then((res: AxiosResponse<Res<RespGroups>>) => {
-            rules.value = res.data.payload
+            rules.value = res.data.data
       })
       user.value = u
 }

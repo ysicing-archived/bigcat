@@ -212,7 +212,7 @@ const pushEnv = () => {
 
 const currentPage = () => {
       request.Get().then((res: AxiosResponse<Res<Settings>>) => {
-            config.value = res.data.payload
+            config.value = res.data.data
       })
 }
 const closeTag = (removedTag: string) => {
