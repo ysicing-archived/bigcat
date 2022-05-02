@@ -1,6 +1,6 @@
 {
   "name": "bigcat",
-  "version": "0.0.1-20220501-0.0.0",
+  "version": "0.0.1-20220502-832f501",
   "license": "AGPL-3.0-or-later",
   "scripts": {
     "dev": "vite  --mode dev",

@@ -26,20 +26,21 @@ func Execute() error {
 }
 
 func init() {
-	logcfg := &zlog.Config{Simple: true, WriteLog: false, WriteJSON: true, ServiceName: "bigcat"}
+	logcfg := &zlog.Config{Simple: true, WriteLog: true, WriteJSON: false, ServiceName: "bigcat"}
 	zlog.InitZlog(logcfg)
 	cobra.OnInitialize(initConfig)
-	rootCmd.PersistentFlags().StringVar(&CfgFile, "config", "", "config file (default is /conf/example.yml)")
+	rootCmd.PersistentFlags().StringVar(&CfgFile, "config", "", "config file (default is /conf/bigcat.yml)")
 	rootCmd.AddCommand(coreCmd())
 }
 
 func initConfig() {
 	if CfgFile == "" {
-		CfgFile = "/conf/bigcat.yaml"
+		CfgFile = "/conf/bigcat.yml"
 		if zos.IsMacOS() {
-			CfgFile = "./conf/bigcat.yaml"
+			CfgFile = "./conf/bigcat.yml"
 		}
 	}
+	viper.SetEnvPrefix("bc")
 	viper.SetConfigFile(CfgFile)
 	viper.AutomaticEnv()
 	if err := viper.ReadInConfig(); err == nil {

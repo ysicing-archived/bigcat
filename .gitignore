@@ -12,3 +12,5 @@ dist/
 .idea/
 .vscode/
 _output/
+conf/bigcat.yml
+conf/bigcat.yaml
