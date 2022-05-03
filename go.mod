@@ -6,7 +6,7 @@ require (
 	github.com/alecthomas/template v0.0.0-20190718012654-fb15b899a751
 	github.com/dgrijalva/jwt-go v3.2.0+incompatible
 	github.com/ergoapi/errors v0.0.1
-	github.com/ergoapi/exgin v1.0.8
+	github.com/ergoapi/exgin v1.1.0
 	github.com/ergoapi/glog v0.0.5
 	github.com/ergoapi/util v0.2.13
 	github.com/ergoapi/zlog v0.0.3
@@ -68,6 +68,7 @@ require (
 	github.com/prometheus/client_model v0.2.0 // indirect
 	github.com/prometheus/common v0.34.0 // indirect
 	github.com/prometheus/procfs v0.7.3 // indirect
+	github.com/sirupsen/logrus v1.8.1 // indirect
 	github.com/spf13/afero v1.8.2 // indirect
 	github.com/spf13/cast v1.4.1 // indirect
 	github.com/spf13/jwalterweatherman v1.1.0 // indirect
