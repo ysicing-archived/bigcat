@@ -2,3 +2,15 @@
 # Use of this source code is governed by AGPL-3.0-or-later
 # license that can be found in the LICENSE file.
 
+debug: true
+server:
+  admin:
+    user: ysicing
+    password: ahng4pomaeb8uhabe4teechiB2aud4oo
+    email: root@ysicing.net
+db:
+  type: sqlite
+  dsn: bigcat.db
+  metrics:
+    enable: true
+    name: bigcat

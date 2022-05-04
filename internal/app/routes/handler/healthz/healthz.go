@@ -13,7 +13,6 @@ import (
 	// version prometheus
 	_ "github.com/ergoapi/util/version/prometheus"
 	"github.com/gin-gonic/gin"
-	"github.com/prometheus/client_golang/prometheus/promhttp"
 	ginSwagger "github.com/swaggo/gin-swagger"
 	"github.com/swaggo/gin-swagger/swaggerFiles"
 
@@ -34,7 +33,6 @@ func (h *Handler) ApplyRoute(r *gin.Engine) {
 			"healthz": "healthz",
 		}, nil)
 	})
-	r.GET("/metrics", gin.WrapH(promhttp.Handler()))
 	r.GET("/rv", func(c *gin.Context) {
 		v := version.Get()
 		exgin.GinsData(c, map[string]string{

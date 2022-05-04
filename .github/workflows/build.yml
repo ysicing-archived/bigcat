@@ -15,19 +15,20 @@ jobs:
         uses: actions/setup-go@v3
         with:
           go-version: 1.18.x
+      - name: Login GHCR
+        uses: docker/login-action@v1
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GHCRIO }}
       - name: Yarn setup
         uses: DerYeger/yarn-setup-action@master
         with:
           node-version: 16
-      # - name: Login GHCR
-      #   uses: docker/login-action@v1
-      #   with:
-      #     registry: ghcr.io
-      #     username: ${{ github.actor }}
-      #     password: ${{ secrets.GHCRIO }}
       - name: build
         run: |
           export TZ='Asia/Shanghai'
           export PATH=$PATH:$(go env GOPATH)/bin
-          make static
-          make build
+          # make static
+          # make build
+          make docker

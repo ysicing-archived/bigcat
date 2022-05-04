@@ -7,6 +7,7 @@ BIN_DIR := $(BUILD_DIR)/bin
 GO111MODULE = on
 GOPROXY = https://goproxy.cn,direct
 GOSUMDB = sum.golang.google.cn
+IMAGE           ?= ghcr.io/ysicing/bigcat
 
 BUILD_RELEASE   ?= $(shell cat version.txt || echo "0.0.1")
 BUILD_DATE := $(shell date "+%Y%m%d")
@@ -64,6 +65,12 @@ static: ## 构建ui
 build: ## build binary
 	@echo "build bin ${GIT_VERSION} $(GIT_COMMIT) $(GIT_BRANCH) $(BUILD_DATE) $(GIT_TREE_STATE)"
 	$(GO_BUILD) -o $(BIN_DIR)/bigcat
+
+docker: static ## 构建镜像
+	docker build -t ${IMAGE}:${BUILD_RELEASE} .
+	docker tag ${IMAGE}:${BUILD_RELEASE} ${IMAGE}
+	docker push ${IMAGE}
+	docker push ${IMAGE}:${BUILD_RELEASE}
 
 clean: ## clean
 	rm -rf $(BIN_DIR)

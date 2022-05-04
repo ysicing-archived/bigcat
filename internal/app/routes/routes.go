@@ -24,7 +24,7 @@ func SetupRoutes() *gin.Engine {
 		Gops:    true,
 		Pprof:   true,
 	})
-	g.Use(exgin.ExZLog("/healthz", "/metrics"))
+	g.Use(exgin.ExZLog("/healthz", "/metrics", "/docs", "/hostdebug"))
 	g.Use(exgin.ExZRecovery())
 	factories := []handler.RegisterFactory{
 		healthz.NewHandler,

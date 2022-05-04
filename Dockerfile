@@ -20,4 +20,10 @@ RUN make build
 
 FROM ysicing/debian
 
+COPY --from=build /go/src/_output/bin/bigcat /root/bigcat
 
+COPY --from=build /go/src/web/dist /root/web/dist
+
+RUN chmod +x /root/bigcat
+
+CMD /root/bigcat core
