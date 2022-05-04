@@ -4,7 +4,6 @@ go 1.18
 
 require (
 	github.com/alecthomas/template v0.0.0-20190718012654-fb15b899a751
-	github.com/dgrijalva/jwt-go v3.2.0+incompatible
 	github.com/ergoapi/errors v0.0.1
 	github.com/ergoapi/exgin v1.1.0
 	github.com/ergoapi/glog v0.0.5
@@ -12,6 +11,7 @@ require (
 	github.com/ergoapi/zlog v0.0.3
 	github.com/fsnotify/fsnotify v1.5.4
 	github.com/gin-gonic/gin v1.7.7
+	github.com/golang-jwt/jwt/v4 v4.4.1
 	github.com/robfig/cron/v3 v3.0.1
 	github.com/spf13/cobra v1.4.0
 	github.com/spf13/viper v1.11.0
