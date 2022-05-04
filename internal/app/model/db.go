@@ -29,8 +29,8 @@ func Init() {
 	var err error
 	dbtype := config.GetString("db.type")
 	dbdsn := config.GetString("db.dsn")
-	dbmode := config.GetBool("debug")
-	newLogger := glog.New(zlog.Zlog, dbmode)
+	debug := config.GetBool("debug", true)
+	newLogger := glog.New(zlog.Zlog, debug)
 	cfg := &gorm.Config{
 		Logger:                 newLogger,
 		SkipDefaultTransaction: true, // 禁用默认事务
@@ -42,16 +42,14 @@ func Init() {
 	}
 	switch dbtype {
 	case "mysql":
-		zlog.Debug("dbtype is mysql")
 		db, err = gorm.Open(mysql.Open(dbdsn), cfg)
 	default:
-		zlog.Debug("dbtype is %s", dbtype)
 		db, err = gorm.Open(sqlite.Open(dbdsn), cfg)
 	}
 	if err != nil {
 		zlog.Panic("setup db err: %v", err.Error())
 	}
-	if config.GetBool("db.metrics.enable") {
+	if config.GetBool("db.metrics.enable", true) {
 		dbname := config.GetString("db.metrics.name", "bigcat")
 
 		db.Use(prometheus.New(prometheus.Config{

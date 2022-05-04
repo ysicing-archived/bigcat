@@ -4,6 +4,10 @@
 
 debug: true
 server:
+  gops:
+    enable: true
+  pprof:
+    enable: true
   admin:
     user: ysicing
     password: ahng4pomaeb8uhabe4teechiB2aud4oo

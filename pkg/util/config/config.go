@@ -17,5 +17,12 @@ func GetString(s string, callback ...string) string {
 }
 
 func GetBool(s string, callback ...bool) bool {
+	k := GetString(s)
+	if k == "" {
+		if len(callback) > 0 {
+			return callback[0]
+		}
+		return false
+	}
 	return viper.GetBool(s)
 }

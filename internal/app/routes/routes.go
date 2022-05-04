@@ -18,11 +18,11 @@ import (
 
 func SetupRoutes() *gin.Engine {
 	g := exgin.Init(&exgin.Config{
-		Debug:   config.GetBool("app.debug"),
+		Debug:   config.GetBool("debug", true),
 		Metrics: true,
 		Cors:    true,
-		Gops:    true,
-		Pprof:   true,
+		Gops:    config.GetBool("server.gops.enable", true),
+		Pprof:   config.GetBool("server.pprof.enable", true),
 	})
 	g.Use(exgin.ExZLog("/healthz", "/metrics", "/docs", "/hostdebug"))
 	g.Use(exgin.ExZRecovery())
