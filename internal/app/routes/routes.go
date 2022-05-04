@@ -5,11 +5,7 @@
 package routes
 
 import (
-	"fmt"
-
 	"github.com/ergoapi/exgin"
-	"github.com/ergoapi/util/exnet"
-	"github.com/gin-contrib/pprof"
 	"github.com/gin-gonic/gin"
 	"github.com/ysicing/bigcat/internal/app/routes/handler"
 	"github.com/ysicing/bigcat/internal/app/routes/handler/auth"
@@ -21,11 +17,15 @@ import (
 )
 
 func SetupRoutes() *gin.Engine {
-	g := exgin.Init(config.GetBool("debug"))
-	g.Use(exgin.ExCors())
-	g.Use(exgin.ExLog("/healthz", "/metrics"))
-	g.Use(exgin.ExRecovery())
-	pprof.Register(g, fmt.Sprintf("/hostdebug/%v/entry", exnet.LocalIPs()[0]))
+	g := exgin.Init(&exgin.Config{
+		Debug:   config.GetBool("app.debug"),
+		Metrics: true,
+		Cors:    true,
+		Gops:    true,
+		Pprof:   true,
+	})
+	g.Use(exgin.ExZLog("/healthz", "/metrics"))
+	g.Use(exgin.ExZRecovery())
 	factories := []handler.RegisterFactory{
 		healthz.NewHandler,
 		web.NewHandler,

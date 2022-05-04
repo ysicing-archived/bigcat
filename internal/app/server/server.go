@@ -41,6 +41,5 @@ func Serve(ctx context.Context) error {
 		zlog.Error("Failed to start http server, error: %s", err)
 		return err
 	}
-
 	return nil
 }
