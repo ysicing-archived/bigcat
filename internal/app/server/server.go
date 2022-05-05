@@ -13,12 +13,14 @@ import (
 	"github.com/ergoapi/zlog"
 	"github.com/ysicing/bigcat/internal/app/model"
 	"github.com/ysicing/bigcat/internal/app/routes"
+	"github.com/ysicing/bigcat/pkg/cache"
 	"github.com/ysicing/bigcat/pkg/cron"
 )
 
 func Serve(ctx context.Context) error {
 	defer cron.Cron.Stop()
 	cron.Cron.Start()
+	cache.Setup()
 	model.Init()
 	g := routes.SetupRoutes()
 

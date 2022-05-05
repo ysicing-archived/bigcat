@@ -11,6 +11,9 @@ import (
 	"github.com/fsnotify/fsnotify"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
+	"github.com/ysicing/bigcat/cmd/agent"
+	"github.com/ysicing/bigcat/cmd/core"
+	"github.com/ysicing/bigcat/cmd/version"
 )
 
 var (
@@ -30,7 +33,9 @@ func init() {
 	zlog.InitZlog(logcfg)
 	cobra.OnInitialize(initConfig)
 	rootCmd.PersistentFlags().StringVar(&CfgFile, "config", "", "config file (default is /conf/bigcat.yml)")
-	rootCmd.AddCommand(coreCmd())
+	rootCmd.AddCommand(core.Core())
+	rootCmd.AddCommand(agent.Agent())
+	rootCmd.AddCommand(version.Version())
 }
 
 func initConfig() {

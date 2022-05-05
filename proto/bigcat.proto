@@ -1,0 +1,20 @@
+// Copyright (c) 2022 ysicing All rights reserved.
+// Use of this source code is governed by AGPL-3.0-or-later
+// license that can be found in the LICENSE file.
+
+syntax = "proto3";
+option go_package = "./proto";
+
+package proto;
+
+service Greeter {
+    rpc Hello(HelloRequest) returns (HelloResponse) {}
+}
+
+message HelloRequest {
+    string request = 1;
+}
+
+message HelloResponse {
+    string response = 1;
+}

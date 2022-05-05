@@ -59,6 +59,9 @@ doc: ## doc
 
 default: gencopyright doc fmt lint ## fmt code
 
+pb: ## pb
+	protoc   --go_out=.   proto/*.proto 
+
 static: ## 构建ui
 	hack/build/ui.sh ${APP_VERSION}
 

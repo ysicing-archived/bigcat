@@ -2,7 +2,7 @@
 // Use of this source code is governed by AGPL-3.0-or-later
 // license that can be found in the LICENSE file.
 
-package cmd
+package core
 
 import (
 	"context"
@@ -14,7 +14,7 @@ import (
 	"github.com/ysicing/bigcat/internal/app/server"
 )
 
-func coreCmd() *cobra.Command {
+func Core() *cobra.Command {
 	return &cobra.Command{
 		Use:   "core",
 		Short: "core by ysicing",
