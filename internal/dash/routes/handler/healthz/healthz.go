@@ -18,7 +18,7 @@ import (
 
 	// docs
 	_ "github.com/ysicing/bigcat/docs"
-	"github.com/ysicing/bigcat/internal/app/routes/handler"
+	"github.com/ysicing/bigcat/internal/dash/routes/handler"
 )
 
 type Handler struct{}

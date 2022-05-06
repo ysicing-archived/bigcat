@@ -7,8 +7,8 @@ package user
 import (
 	"github.com/ergoapi/exgin"
 	"github.com/gin-gonic/gin"
-	"github.com/ysicing/bigcat/internal/app/model"
-	"github.com/ysicing/bigcat/internal/app/routes/handler"
+	"github.com/ysicing/bigcat/internal/dash/model"
+	"github.com/ysicing/bigcat/internal/dash/routes/handler"
 	"github.com/ysicing/bigcat/internal/util"
 )
 

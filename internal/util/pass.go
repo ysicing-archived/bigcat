@@ -11,7 +11,7 @@ import (
 	"github.com/ergoapi/exgin"
 	"github.com/ergoapi/util/expass"
 	"github.com/gin-gonic/gin"
-	"github.com/ysicing/bigcat/internal/app/model"
+	"github.com/ysicing/bigcat/internal/dash/model"
 )
 
 func CheckPassword(user *model.User, password string) bool {

@@ -7,7 +7,7 @@ package dash
 import (
 	"github.com/ergoapi/exgin"
 	"github.com/gin-gonic/gin"
-	"github.com/ysicing/bigcat/internal/app/routes/handler"
+	"github.com/ysicing/bigcat/internal/dash/routes/handler"
 )
 
 type Handler struct{}

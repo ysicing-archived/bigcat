@@ -7,12 +7,12 @@ package routes
 import (
 	"github.com/ergoapi/exgin"
 	"github.com/gin-gonic/gin"
-	"github.com/ysicing/bigcat/internal/app/routes/handler"
-	"github.com/ysicing/bigcat/internal/app/routes/handler/auth"
-	"github.com/ysicing/bigcat/internal/app/routes/handler/dash"
-	"github.com/ysicing/bigcat/internal/app/routes/handler/healthz"
-	"github.com/ysicing/bigcat/internal/app/routes/handler/user"
-	"github.com/ysicing/bigcat/internal/app/routes/handler/web"
+	"github.com/ysicing/bigcat/internal/dash/routes/handler"
+	"github.com/ysicing/bigcat/internal/dash/routes/handler/auth"
+	"github.com/ysicing/bigcat/internal/dash/routes/handler/dash"
+	"github.com/ysicing/bigcat/internal/dash/routes/handler/healthz"
+	"github.com/ysicing/bigcat/internal/dash/routes/handler/user"
+	"github.com/ysicing/bigcat/internal/dash/routes/handler/web"
 	"github.com/ysicing/bigcat/pkg/util/config"
 )
 

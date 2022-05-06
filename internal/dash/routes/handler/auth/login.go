@@ -9,7 +9,7 @@ import (
 
 	"github.com/ergoapi/exgin"
 	"github.com/gin-gonic/gin"
-	"github.com/ysicing/bigcat/internal/app/model"
+	"github.com/ysicing/bigcat/internal/dash/model"
 	"github.com/ysicing/bigcat/internal/util"
 	libutil "github.com/ysicing/bigcat/pkg/util"
 )

@@ -60,7 +60,7 @@ doc: ## doc
 default: gencopyright doc fmt lint ## fmt code
 
 pb: ## pb
-	protoc   --go_out=.   proto/*.proto 
+	protoc --go_out=. --go-grpc_out=require_unimplemented_servers=false:.  proto/*.proto
 
 static: ## 构建ui
 	hack/build/ui.sh ${APP_VERSION}

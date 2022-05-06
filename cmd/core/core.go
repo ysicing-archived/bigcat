@@ -11,7 +11,7 @@ import (
 
 	"github.com/ergoapi/zlog"
 	"github.com/spf13/cobra"
-	"github.com/ysicing/bigcat/internal/app/server"
+	"github.com/ysicing/bigcat/internal/dash/server"
 )
 
 func Core() *cobra.Command {
