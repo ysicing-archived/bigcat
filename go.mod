@@ -7,7 +7,7 @@ require (
 	github.com/ergoapi/errors v0.0.1
 	github.com/ergoapi/exgin v1.1.0
 	github.com/ergoapi/glog v0.0.5
-	github.com/ergoapi/util v0.2.13
+	github.com/ergoapi/util v0.2.16
 	github.com/ergoapi/zlog v0.0.3
 	github.com/fsnotify/fsnotify v1.5.4
 	github.com/gin-gonic/gin v1.7.7
@@ -81,7 +81,7 @@ require (
 	github.com/ugorji/go/codec v1.2.7 // indirect
 	go.uber.org/atomic v1.9.0 // indirect
 	go.uber.org/multierr v1.8.0 // indirect
-	golang.org/x/crypto v0.0.0-20220427172511-eb4f295cb31f // indirect
+	golang.org/x/crypto v0.0.0-20220511200225-c6db032c6c88 // indirect
 	golang.org/x/mod v0.5.0 // indirect
 	golang.org/x/net v0.0.0-20220425223048-2871e0cb64e4 // indirect
 	golang.org/x/sys v0.0.0-20220503163025-988cb79eb6c6 // indirect
